@@ -25,5 +25,5 @@ You only need a Java Development Kit (JDK) installed on your system.
 The real magic is in the Book class, which keeps the data (title, author, quantity) logically grouped and separated from the main application logic. The LibrarySystem class then holds an ArrayList<Book> to manage all the available titles. This separation of concerns makes the code clean and much easier to maintain.
 
 
-🤝 Contribution
+🤝 Contribution:
 Got ideas for adding features like user accounts or search functionality? Feel free to fork the repo, create a feature branch, and hit me with a pull request!
