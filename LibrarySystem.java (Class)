@@ -1,0 +1,142 @@
+Import java.util.ArrayList;
+Import java.util.Scanner;
+
+// class to represent a book
+Class Book {
+    String title;
+    String author;
+    Int quantity;
+
+    // Constructor
+    Book(String title, String author, int quantity) {
+        This.title = title;
+        This.author = author;
+        This.quantity = quantity;
+    }
+}
+
+Public class LibrarySystem {
+    Public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Book> library = new ArrayList<>();
+
+        Int choice;
+
+        // Main program loop
+        Do {
+            // Display the menu
+            System.out.println(“\n--- Library Menu ---“);
+            System.out.println(“1. Add Books”);
+            System.out.println(“2. Borrow Books”);
+            System.out.println(“3. Return Books”);
+            System.out.println(“4. Exit”);
+            System.out.print(“Enter your choice: “);
+
+            // Read the user choice
+            Choice = scanner.nextInt();
+            Scanner.nextLine(); // Consume newline
+
+            Switch (choice) {
+                Case 1:
+                    // Add book to library
+                    System.out.print(“Enter book title: “);
+                    String title = scanner.nextLine();
+
+                    System.out.print(“Enter author name: “);
+                    String author = scanner.nextLine();
+
+                    System.out.print(“Enter quantity: “);
+                    Int qty = scanner.nextInt();
+
+                    Boolean found = false;
+
+                    // Check if the book already exists
+                    For (Book b : library) {
+                        If (b.title.equalsIgnoreCase(title)) {
+                            b.quantity += qty;
+                            found = true;
+                            System.out.println(“Book quantity updated.”);
+                            Break;
+                        }
+                    }
+
+                    // If not found, add new book
+                    If (!found) {
+                        Book newBook = new Book(title, author, qty);
+                        Library.add(newBook);
+                        System.out.println(“Book added to the library.”);
+                    }
+                    Break;
+
+                Case 2:
+                    // Borrow book
+                    System.out.print(“Enter book title to borrow: “);
+                    String borrowTitle = scanner.nextLine();
+
+                    System.out.print(“Enter quantity to borrow: “);
+                    Int borrowQty = scanner.nextInt();
+
+                    Boolean borrowed = false;
+
+                    For (Book b : library) {
+                        If (b.title.equalsIgnoreCase(borrowTitle)) {
+                            If (b.quantity >= borrowQty) {
+                                b.quantity -= borrowQty;
+                                System.out.println(“Book borrowed successfully.”);
+                            } else {
+                                System.out.println(“Not enough copies available.”);
+                            }
+                            Borrowed = true;
+                            Break;
+                        }
+                    }
+
+                    If (!borrowed) {
+                        System.out.println(“Book not found in the library.”);
+                    }
+                    Break;
+
+                Case 3:
+                    // Return book
+                    System.out.print(“Enter book title to return: “);
+                    String returnTitle = scanner.nextLine();
+
+                    System.out.print(“Enter quantity to return: “);
+                    Int returnQty = scanner.nextInt();
+
+                    Boolean returned = false;
+
+                    For (Book b : library) {
+                        If (b.title.equalsIgnoreCase(returnTitle)) {
+                            b.quantity += returnQty;
+                            System.out.println(“Book returned successfully.”);
+                            Returned = true;
+                            Break;
+                        }
+                    }
+
+                    If (!returned) {
+                        System.out.println(“This book does not belong to the library.”);
+                    }
+                    Break;
+
+                Case 4:
+                    System.out.println(“Exiting the system. Goodbye!”);
+                    Break;
+
+                Default:
+                    System.out.println(“Invalid choice. Please enter 1-4.”);
+            }
+
+        } while (choice != 4);
+
+        Scanner.close(); // Close the scanner
+    }
+}
+
+
+
+
+
+
+
