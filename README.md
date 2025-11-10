@@ -16,7 +16,7 @@ This project is pure Java, so setup is blissfully simple.
 
 
 
-💡 Prerequisites
+💡 Prerequisites: 
 You only need a Java Development Kit (JDK) installed on your system.
 
 
